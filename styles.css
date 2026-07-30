@@ -1,0 +1,35 @@
+body {
+    background-color: #32a852;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 40px;
+    font-size: 1.25rem;
+    font-family: sans-serif;
+}
+
+.weather-info-wrap {
+    min-width: 100%;
+    max-width: 700px;
+    min-height: 300px;
+    padding: 20px 0px;
+    text-align: center;
+    background-color: #eee;
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+}
+
+.btn-wrap {
+    min-width: 100%;
+    max-width: 700px;
+    min-height: 150px;
+    background-color: #eee;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
