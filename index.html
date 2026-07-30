@@ -1,0 +1,59 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ruben Weather App</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="weather-info-wrap">
+            // Display weather info
+            <div id="weather-info">
+                <div id="location"></div>
+                <div class="primary-info">
+                    <div id="main-temperature" class="primary-info-left"></div>
+                    <div class="primary-info-right">
+                        <img id="weather-icon" />
+                        <div id="weather-main"></div>
+                    </div>
+                </div>
+                <div class="secondary-info">
+                    <div class="secondary-info-top">
+                        <div id="humidity"></div>
+                        <div id="feels-like"></div>
+                    </div>
+                    <div class="secondary-info-bottom">
+                        <div class="secondary-info-bottom-left">
+                            <div id="wind"></div>
+                            <div id="wind-gust"></div>
+                        </div>
+                        <div class="secondary-info-bottom-right">
+                            <span id="compass-arrow">
+                                <span class="arrow-head"></span>
+                            </span>
+                            <span class="compass-direction north"></span>
+                            <span class="compass-direction east"></span>
+                            <span class="compass-direction south"></span>
+                            <span class="compass-direction west"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        // Weather button
+        <div id="btn-wrap">
+            <span>Weather for:</span>
+            <select id="location-selector">
+                <option value=""></option>
+                <option value="new york">New York</option>
+                <option value="los angeles">Los Angeles</option>
+                <option value="chicago">Chicago</option>
+                <option value="paris">Paris</option>
+                <option value="tokyo">Tokyo</option>
+                <option value="london">London</option>
+            </select>
+            <button id="get-weather-btn">Get Weather</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
