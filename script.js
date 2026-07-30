@@ -4,7 +4,7 @@ const mainTemperatureEl = document.getElementById('main-temperature');
 const weatherIconEl = document.getElementById('weather-icon');
 const weatherMainEl = document.getElementById('weather-main');
 const humidityEl = document.getElementById('humidity');
-const feelkLikeEl = document.getElementById('feels-like');
+const feelsLikeEl = document.getElementById('feels-like');
 const windEl = document.getElementById('wind');
 const windGustEl = document.getElementById('wind-gust');
 
@@ -17,11 +17,13 @@ async function getWeather(city) {
         const res = await fetch(
             `https://weather-proxy.freecodecamp.rocks/api/city/${city}`,
         );
+        if (!res.ok) {
+            throw new Error(`City not found: ${city}`);
+        }
         const data = await res.json();
         return data;
     } catch (error) {
-        console.log('There was an error fetching weather data: ', error);
-        throw error;
+        console.error(error);
     }
 }
 
@@ -38,6 +40,11 @@ async function showWeather(city) {
     try {
         const data = await getWeather(city);
 
+        if (!data) {
+            alert('Something went wrong, please try again later');
+            return;
+        }
+
         const cityName = data.name;
         const weatherIcon =
             data.weather && data.weather[0] ? data.weather[0].icon : undefined;
@@ -53,7 +60,7 @@ async function showWeather(city) {
         weatherIconEl.src = weatherIcon ? weatherIcon : '';
         weatherMainEl.textContent = displayOrNa(weatherCondition);
         mainTemperatureEl.textContent = displayOrNa(temperature);
-        feelkLikeEl.textContent = displayOrNa(feelsLike);
+        feelsLikeEl.textContent = displayOrNa(feelsLike);
         humidityEl.textContent = displayOrNa(humidity);
         windEl.textContent = displayOrNa(windSpeed);
         windGustEl.textContent = displayOrNa(windGust);
